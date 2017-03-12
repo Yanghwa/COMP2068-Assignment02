@@ -1,0 +1,51 @@
+<% include ./partials/header.ejs %>
+	<main class="main-content">
+		<div class="page">
+			<div class="container">
+				<a href="/portfolio" class="button-back"><img src="../images/arrow-back.png" alt="" class="icon">Back to the portfolio</a>
+
+				<div class="row">
+					<div class="col-md-8">
+						<div class="map"></div>
+
+						<div class="contact-detail">
+							<address>
+								<div class="contact-icon">
+									<img src="../images/icon-marker.png" class="icon">
+								</div>
+								<p><strong>J.S Custom Builders.</strong> <br>28 Clear Lake Road, Seguin, Ontario, P2A 2W8</p>
+							</address>
+							<br />
+							<br />
+							<a class="phone"><span class="contact-icon"><img src="../images/icon-phone.png" class="icon"></span>Jamie Steele: +1 705 773 8774</a>
+							<a class="phone"><span class="contact-icon"><img src="../images/icon-phone.png" class="icon"></span>John Schmalz: +1 705 773 3479</a>
+							<br />
+							<br />
+							<a href="mailto:jamie@jscustombuilders.com" class="email"><span class="contact-icon"><img src="../images/icon-envelope.png" class="icon"></span>jamie@jscustombuilders.com</a>
+							<a href="mailto:john@jscustombuilders.com" class="email"><span class="contact-icon"><img src="../images/icon-envelope.png" class="icon"></span>john@jscustombuilders.com</a>
+						</div>
+					</div>
+					<div class="col-md-3 col-md-offset-1">
+						<div class="contact-form">
+							<h2 class="section-title">Write us</h2>
+							<p>If you have any question, please let us know.</p>
+
+							<form method="post">
+								<input name="name" type="text" placeholder="Your name">
+								<input name="email" type="email" placeholder="Email">
+								<input name="phone" type="text" placeholder="Phone number">
+								<textarea name="message" placeholder="Message"></textarea>
+								<p class="text-right">
+									<button type="submit">Send message</button>
+								</p>
+							</form>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div> <!-- .page -->
+
+	</main> <!-- .main-content -->
+	<script src="http://maps.google.com/maps/api/js?sensor=false&amp;language=en"></script>
+<% include ./partials/footer.ejs %>
+	

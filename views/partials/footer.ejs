@@ -1,0 +1,47 @@
+		<footer class="site-footer">
+				<div class="container">
+					<!-- <div class="pull-left">
+
+						<address>
+							<strong>J.S Custom Builders</strong>
+							<p>28 Clear Lake Road, Seguin, Ontario, P2A 2W8</p>
+						</address>
+						Jamie Steele: <a href="#" class="phone">+ 1 705 773 8774</a>
+						John Schmalz: <a href="#" class="phone">+ 1 705 773 3479</a>
+					</div> --> <!-- .pull-left -->
+					<div class="colophon">J.S Custom Builders. Copyright 2017. All rights Reserved.</div>
+
+				</div> <!-- .container -->
+			</footer> <!-- .site-footer -->
+		</div>
+
+		<script src="../javascripts/jquery-1.11.1.min.js"></script>
+		<script src="../javascripts/plugins.js"></script>
+		<script src="../javascripts/app.js"></script>
+		<script>
+			$(".menu-home").removeClass("current-menu-item");
+			$(".menu-news").removeClass("current-menu-item");
+			$(".menu-about").removeClass("current-menu-item");
+			$(".menu-portfolio").removeClass("current-menu-item");
+			$(".menu-contact").removeClass("current-menu-item");
+			switch("<%=currentPage%>") {
+				case "home":
+					$(".menu-home").addClass("current-menu-item");
+					break;
+				case "about":
+					$(".menu-about").addClass("current-menu-item");
+					break;
+				case "portfolio":
+					$(".menu-portfolio").addClass("current-menu-item");
+					break;
+				case "contact":
+					$(".menu-contact").addClass("current-menu-item");
+					break;
+				case "news":
+					$(".menu-news").addClass("current-menu-item");
+					break;
+			}
+		</script>
+	</body>
+
+</html>
