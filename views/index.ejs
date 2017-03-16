@@ -1,46 +1,16 @@
 <% include ./partials/header.ejs %>
 	<div class="hero hero-slider">
 		<ul class="slides">
-			<li data-bg-image="../images/home_slides/js-slide1.jpg">
+			<% for(let i = 1; i <6; i++) { %>
+			<li data-bg-image="../images/home_slides/js-slide<%=i%>.jpg">
 				<div class="container">
 					<div class="slide-title">
-						<span>blanditiis deleniti</span> <br>
-						<span>ducimus deleniti atque</span>
+						<span>build</span> <br>
+						<span>your ideal house</span>
 					</div>
 				</div>
 			</li>
-			<li data-bg-image="../images/home_slides/js-slide2.jpg">
-				<div class="container">
-					<div class="slide-title">
-						<span>blanditiis deleniti</span> <br>
-						<span>ducimus deleniti atque</span>
-					</div>
-				</div>
-			</li>
-			<li data-bg-image="../images/home_slides/js-slide3.jpg">
-				<div class="container">
-					<div class="slide-title">
-						<span>blanditiis deleniti</span> <br>
-						<span>ducimus deleniti atque</span>
-					</div>
-				</div>
-			</li>
-			<li data-bg-image="../images/home_slides/js-slide4.jpg">
-				<div class="container">
-					<div class="slide-title">
-						<span>blanditiis deleniti</span> <br>
-						<span>ducimus deleniti atque</span>
-					</div>
-				</div>
-			</li>
-			<li data-bg-image="../images/home_slides/js-slide5.jpg">
-				<div class="container">
-					<div class="slide-title">
-						<span>blanditiis deleniti</span> <br>
-						<span>ducimus deleniti atque</span>
-					</div>
-				</div>
-			</li>
+			<% } %>
 		</ul> <!-- .slides -->
 	</div> <!-- .hero-slider -->
 
@@ -51,21 +21,21 @@
 					<div class="col-md-4">
 						
 						<h3 class="section-title">About Us</h3>
-						<p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium totam aperiam eaque ipsa quae illo inventore veritatis quasi architecto beatae vitae dicta explicabo nemo ipsam voluptatem quia voluptas aspernatur.</p>
+						<p>J.S. Custom builders is a locally owned and operated business with 10 years of experience building custom homes and cottages in the Muskoka/ Parry Soundarea.</p>
 						<a href="/about" class="button">Read more</a>
 						
 					</div>
 					<div class="col-md-4">
 						
 						<h3 class="section-title">Portfolio</h3>
-						<p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium totam aperiam eaque ipsa quae illo inventore veritatis quasi architecto beatae vitae dicta explicabo nemo ipsam voluptatem quia voluptas aspernatur.</p>
+						<p>There are many pictures of our project, and it shows what we can offer you.</p>
 						<a href="/portfolio" class="button">Read more</a>
 						
 					</div>
 					<div class="col-md-4">
 						
 						<h3 class="section-title">Contact Us</h3>
-						<p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium totam aperiam eaque ipsa quae illo inventore veritatis quasi architecto beatae vitae dicta explicabo nemo ipsam voluptatem quia voluptas aspernatur.</p>
+						<p>If you need any help, don't hesitate. Your messages are always welcomed.</p>
 						<a href="/contact" class="button">Read more</a>
 						
 					</div>
