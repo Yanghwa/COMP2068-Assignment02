@@ -6,27 +6,27 @@ let Account = require('../models/account');
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-  res.render('index', { title: 'Parry Sound Custom Decks, Docks and Renovations', currentPage: 'home' });
+  res.render('index', { title: 'Parry Sound Custom Decks, Docks and Renovations', currentPage: 'home', user: req.user });
 });
 
 /* GET about page. */
 router.get('/about', function(req, res, next) {
-  res.render('about', { title: 'About J.S Costom Builders', currentPage: 'about' });
+  res.render('about', { title: 'About J.S Costom Builders', currentPage: 'about', user: req.user });
 });
 
 /* GET news page. */
 router.get('/news', function(req, res, next) {
-  res.render('news', { title: 'News', currentPage: 'news' });
+  res.render('news', { title: 'News', currentPage: 'news', user: req.user });
 });
 
 /* GET portfolio page. */
 router.get('/portfolio', function(req, res, next) {
-  res.render('portfolio', { title: 'Portfolio', currentPage: 'portfolio' });
+  res.render('portfolio', { title: 'Portfolio', currentPage: 'portfolio', user: req.user });
 });
 
 /* GET contact page. */
 router.get('/contact', function(req, res, next) {
-  res.render('contact', { title: 'Contact Us', currentPage: 'contact' });
+  res.render('contact', { title: 'Contact Us', currentPage: 'contact', user: req.user });
 });
 
 /* GET register */
