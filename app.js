@@ -87,7 +87,7 @@ app.use(function(err, req, res, next) {
   // render the error page
   res.status(err.status || 500);
   res.render('error', {
-  	title: 'COMP2068 - Book Store',
+  	title: 'ERROR - JSBuilders',
   	user: req.user
   });
 });

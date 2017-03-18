@@ -4,11 +4,11 @@ let mongoose = require('mongoose');
 let plm = require('passport-local-mongoose');
 let findOrCreate = require('mongoose-findorcreate');
 //create the schema  username and password are automatically included
-let accountSchema = new mongoose.Schema({});
+let js_accountSchema = new mongoose.Schema({}, { collection : 'js_users' });
 
 //enable plm & findOrCreate on this model
-accountSchema.plugin(plm);
-accountSchema.plugin(findOrCreate);
+js_accountSchema.plugin(plm);
+js_accountSchema.plugin(findOrCreate);
 
 //make the model public
-module.exports = mongoose.model('Account', accountSchema);
+module.exports = mongoose.model('JSUsers', js_accountSchema);
