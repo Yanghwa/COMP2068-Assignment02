@@ -29,6 +29,24 @@ router.get('/contact', function(req, res, next) {
   res.render('contact', { title: 'Contact Us', currentPage: 'contact', user: req.user });
 });
 
+/* POST contact page*/
+router.post('/contact', function(req, res, next) {
+  let Message = require('../models/message');
+  Message.create({
+  	name:req.body.name,
+  	email: req.body.email,
+	phone: req.body.phone,
+	message: req.body.message
+  }, function(err, book) {
+		if (err) {
+		   console.log(err);
+		   res.render('error');
+		   return;
+		}
+		res.redirect('/contact');
+   });
+});
+
 /* GET register */
 router.get('/register', function(req, res, next) {
   // load the register.ejs view

@@ -1,0 +1,32 @@
+<% include ../partials/header.ejs %>
+	<main class="main-content">
+		<div class="page">
+			<div class="container">
+			<h1>Messages</h1>
+			<table class="table table-striped table-hover">
+			    <tr><th>Name</th><th>Email</th><th>Phone Number</th><th>Message</th>
+			    <% if(user) { %>
+			        <th>Actions</th>
+			    <% } %>
+			    </tr>
+			    <% for (var i = 0; i < messages.length; i++) { %>
+			        <tr>
+			            <td><%= messages[i].name %></td>
+			            <td><%= messages[i].email %></td>
+			            <td><%= messages[i].phonenumber %></td>
+			            <td><%= messages[i].message %></td>
+			            <% if(user) { %>
+			            <td>
+			                <a href="/messages/<%= messages[i]._id %>" class="btn btn-info">Edit</a>
+			                <a href="/messages/delete/<%= messages[i]._id %>" class="btn btn-danger confirmation">Delete</a>
+			            </td>
+			            <% } %>
+			        </tr>
+			    <% } %>
+
+			</table>
+
+			</div>
+		</div> <!-- .page -->
+	</main> <!-- .main-content -->
+<% include ../partials/footer.ejs %>
