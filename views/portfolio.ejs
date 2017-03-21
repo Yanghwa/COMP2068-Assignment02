@@ -10,7 +10,7 @@
 	        	</div>
 	        	<form method="post" enctype="multipart/form-data">
 					<input type="file"  name="image"/>
-					<button type="submit" >Upload File</button>
+					<button type="submit"><a>Upload File</a></button>
 				</form>
 				<div class="filter-links filterable-nav">
 					<select class="mobile-filter">
@@ -20,6 +20,7 @@
 						<option value=".Browning_Island">Browning Island</option>
 						<option value=".Port_Sandfield">Port Sandfield</option>
 						<option value=".Stephens_Bay">Stephens Bay</option>
+						<option value=".uploadedFiles">Uploaded Files</option>
 					</select>
 					<a href="#" class="current wow fadeInRight" data-filter="*">Show all</a>
 					<a href="#" class="wow fadeInRight" data-wow-delay=".2s" data-filter=".LakeJoseph">Lake Joseph</a>
@@ -27,6 +28,7 @@
 					<a href="#" class="wow fadeInRight" data-wow-delay=".6s" data-filter=".Browning_Island">Browning Island</a>
 					<a href="#" class="wow fadeInRight" data-wow-delay=".6s" data-filter=".Port_Sandfield">Port Sandfield</a>
 					<a href="#" class="wow fadeInRight" data-wow-delay=".6s" data-filter=".Stephens_Bay">Stephens Bay</a>
+					<a href="#" class="wow fadeInRight" data-wow-delay=".6s" data-filter=".uploadedFiles">Uploaded Files</a>
 				</div>
 
 				<div class="filterable-items">
@@ -55,6 +57,11 @@
 						<a href="../images/portfolio/Stephens_Bay/stevens<%=i%>.jpg"><img src="../images/portfolio/Stephens_Bay/stevens<%=i%>.jpg" alt="#"></a>
 					</div>
 					<% } %>
+					<% uploadedFiles.forEach(function(uploadedFile) { %>
+					<div class="project-item filterable-item uploadedFiles">
+						<a href="../images/uploads/<%=uploadedFile%>"><img src="../images/uploads/<%=uploadedFile%>" alt="#"></a>
+					</div>
+					<% }); %>	
 				</div>
 			</div>
 		</div> <!-- .page -->

@@ -7,8 +7,10 @@ let Account = require('../models/account');
 let multer  = require('multer');
 let crypto = require('crypto');
 let path = require('path');
+let fs = require('fs');
+let testUpload = 'public/images/uploads/';
 let storage = multer.diskStorage({
-  destination: 'uploads/',
+  destination: 'public/images/uploads/',
   filename: function (req, file, cb) {
      crypto.pseudoRandomBytes(16, function (err, raw) {
       if (err) return cb(err);
@@ -39,7 +41,9 @@ router.get('/news', function(req, res, next) {
 
 /* GET portfolio page. */
 router.get('/portfolio', function(req, res, next) {
-  res.render('portfolio', { title: 'Portfolio', currentPage: 'portfolio', user: req.user });
+  fs.readdir(testUpload, function(err, files) {
+    res.render('portfolio', { title: 'Portfolio', currentPage: 'portfolio', user: req.user, uploadedFiles: files });
+  });
 });
 
 /* POST portfolio page*/
@@ -57,7 +61,7 @@ router.post('/portfolio', type, function (req, res, next) {
     //     , req.file
     //     , '<img src="' + pathArray[(pathArray.length - 1)] + '">'
     // ));
-    res.render('portfolio', { title: 'Portfolio', currentPage: 'portfolio', user: req.user });  
+    res.redirect('/portfolio');
   } else {
     res.redirect('/portfolio');
   }
