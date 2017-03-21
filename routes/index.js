@@ -49,23 +49,11 @@ router.get('/portfolio', function(req, res, next) {
 /* POST portfolio page*/
 router.post('/portfolio', type, function (req, res, next) {
   if(req.isAuthenticated()) {
-    console.log('file info: ',req.file);
-    console.log('file info: ',req.file.path);
-    console.log('file info: ',req.file.originalname);
-    //split the url into an array and then get the last chunk and render it out in the send req.
     var pathArray = req.file.path.split( '/' );
-
-    // res.send(util.format(' Task Complete \n uploaded %s (%d Kb)'
-    //     , req.file.name
-    //     , req.file.size / 1024 | 0
-    //     , req.file
-    //     , '<img src="' + pathArray[(pathArray.length - 1)] + '">'
-    // ));
     res.redirect('/portfolio');
   } else {
     res.redirect('/portfolio');
   }
-  
 });
 
 /* GET contact page. */
@@ -79,8 +67,8 @@ router.post('/contact', function(req, res, next) {
   Message.create({
   	name:req.body.name,
   	email: req.body.email,
-	phone: req.body.phone,
-	message: req.body.message
+    phone: req.body.phone,
+    message: req.body.message
   }, function(err, book) {
 		if (err) {
 		   console.log(err);
@@ -112,11 +100,11 @@ router.get('/login', function(req, res, next) {
 /* POST register*/
 router.post('/register', function(req, res, next) {
   //use the Account model to create a new user account
-  Account.register(new Account({ username: req.body.username}), 
+  Account.register(new Account({ username: req.body.name, email: req.body.email }), 
     req.body.password, function(err, account){
       if(err) {
         console.log(err);
-        res.render('error', {title: 'Create Account Error'});
+        res.render('error', {title: 'Create Account Error', messages: messages});
       }
       res.redirect('/login');
   });

@@ -33,5 +33,67 @@ router.get('/', function(req, res, next) {
    });
 });
 
+// GET /messages/delete/_id - delete and refresh the index view
+router.get('/delete/:_id', isLoggedIn, function(req, res, next) {
+   // get the id parameter from the end of the url
+   let _id = req.params._id;
+
+   // use Mongoose to delete
+   Message.remove({ _id: _id }, function(err) {
+      if (err) {
+         console.log(err);
+         res.render('error');
+         return;
+      }
+      res.redirect('/messages');
+   });
+});
+
+// GET /messages/_id - show edit page and pass it the selected message
+router.get('/:_id', isLoggedIn, function(req, res, next) {
+   // grab id from the url
+   let _id = req.params._id;
+
+   // use mongoose to find the selected message
+   Message.findById(_id, function(err, message) {
+      if (err) {
+         console.log(err);
+         res.render('error');
+         return;
+      }
+      res.render('messages/edit', {
+         message: message,
+         title: 'Message Details',
+         user: req.user,
+         currentPage: 'Message Edit'
+      });
+   });
+});
+
+// POST /messages/_id - save the updated message
+router.post('/:_id', isLoggedIn, function(req, res, next) {
+   // grab id from url
+   let _id = req.params._id;
+
+   // populate new message from the form
+   let message = new Message({
+      _id: _id,
+      name: req.body.name,
+      email: req.body.email,
+      phone: req.body.phone,
+      message: req.body.message
+   });
+
+   Message.update({ _id: _id }, message,  function(err) {
+      if (err) {
+         console.log(err);
+         res.render('error');
+         return;
+      }
+      res.redirect('/messages');
+   });
+});
+
+
 // make this file public
 module.exports = router;

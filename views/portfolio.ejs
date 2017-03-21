@@ -8,10 +8,12 @@
 	        		<span>Need more information? Please </span>
 	        		<a href="/Contact">Contact Us</a>
 	        	</div>
+	        	<% if(user) { %>
 	        	<form method="post" enctype="multipart/form-data">
 					<input type="file"  name="image"/>
 					<button type="submit"><a>Upload File</a></button>
 				</form>
+				<% } %>	
 				<div class="filter-links filterable-nav">
 					<select class="mobile-filter">
 						<option value="*">Show all</option>
@@ -61,7 +63,7 @@
 					<div class="project-item filterable-item uploadedFiles">
 						<a href="../images/uploads/<%=uploadedFile%>"><img src="../images/uploads/<%=uploadedFile%>" alt="#"></a>
 					</div>
-					<% }); %>	
+					<% }); %>
 				</div>
 			</div>
 		</div> <!-- .page -->
