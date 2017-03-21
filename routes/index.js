@@ -3,6 +3,24 @@ var router = express.Router();
 //add passport for reg and login
 let passport = require('passport');
 let Account = require('../models/account');
+//setting imageuploader
+let multer  = require('multer');
+let crypto = require('crypto');
+let path = require('path');
+let storage = multer.diskStorage({
+  destination: 'uploads/',
+  filename: function (req, file, cb) {
+     crypto.pseudoRandomBytes(16, function (err, raw) {
+      if (err) return cb(err);
+      cb(null, raw.toString('hex') + path.extname(file.originalname));
+    });
+  }
+});
+
+let upload = multer({ storage: storage });
+
+let type = upload.single('image');
+let util = require('util');
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
@@ -22,6 +40,28 @@ router.get('/news', function(req, res, next) {
 /* GET portfolio page. */
 router.get('/portfolio', function(req, res, next) {
   res.render('portfolio', { title: 'Portfolio', currentPage: 'portfolio', user: req.user });
+});
+
+/* POST portfolio page*/
+router.post('/portfolio', type, function (req, res, next) {
+  if(req.isAuthenticated()) {
+    console.log('file info: ',req.file);
+    console.log('file info: ',req.file.path);
+    console.log('file info: ',req.file.originalname);
+    //split the url into an array and then get the last chunk and render it out in the send req.
+    var pathArray = req.file.path.split( '/' );
+
+    // res.send(util.format(' Task Complete \n uploaded %s (%d Kb)'
+    //     , req.file.name
+    //     , req.file.size / 1024 | 0
+    //     , req.file
+    //     , '<img src="' + pathArray[(pathArray.length - 1)] + '">'
+    // ));
+    res.render('portfolio', { title: 'Portfolio', currentPage: 'portfolio', user: req.user });  
+  } else {
+    res.redirect('/portfolio');
+  }
+  
 });
 
 /* GET contact page. */

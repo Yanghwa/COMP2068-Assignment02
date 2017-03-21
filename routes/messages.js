@@ -13,7 +13,7 @@ function isLoggedIn(req, res, next) {
 }
 
 /* GET messages index */
-router.get('/', isLoggedIn, function(req, res, next) {
+router.get('/', function(req, res, next) {
 
    // use mongoose model to query mongodb for all messages created on contact page
    Message.find(function(err, messages) {

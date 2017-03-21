@@ -1817,7 +1817,7 @@ td {
   padding: 8px;
   line-height: 1.42857143;
   vertical-align: top;
-  border-top: 1px solid #ddd;
+  //border-top: 1px solid #ddd;
 }
 .table > thead > tr > th {
   vertical-align: bottom;
@@ -1843,7 +1843,8 @@ td {
   padding: 5px;
 }
 .table-bordered {
-  border: 1px solid #ddd;
+  border-top: 1px solid #ddd;
+  border-bottom: 1px solid #ddd;
 }
 .table-bordered > thead > tr > th,
 .table-bordered > tbody > tr > th,
