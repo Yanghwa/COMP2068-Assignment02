@@ -5,7 +5,7 @@ module.exports = {
     facebook: {
     	clientID: '195980897527589',
     	clientSecret: '3798aeb2082a82c30872049d2e1e32fb',
-    	callbackURL: 'http://localhost:3000/facebook/callback'
-    	//callbackURL: 'https://boiling-inlet-59814.herokuapp.com/facebook/callback'
+    	//callbackURL: 'http://localhost:3000/facebook/callback'
+    	callbackURL: 'https://boiling-inlet-59814.herokuapp.com/facebook/callback'
     }
 };
