@@ -1,6 +1,7 @@
+//set mongoose to set schema for message
 let mongoose = require('mongoose');
 
-//create the schema  messages from the customer
+//create the schema messages from the customer
 let js_messageSchema = new mongoose.Schema({
 	name: {
         type: String,

@@ -10,6 +10,7 @@ let passport = require('passport');
 let session = require('express-session');
 let localStrategy = require('passport-local').Strategy;
 
+//router setting
 var index = require('./routes/index');
 var users = require('./routes/users');
 var messages = require('./routes/messages');
@@ -22,7 +23,7 @@ var conn = mongoose.connection;
 
 // link to config file
 var globals = require('./config/globals');
-
+//connect to db
 conn.open(globals.db);
 
 // view engine setup
@@ -69,6 +70,7 @@ passport.use(new FacebookStrategy({
 passport.serializeUser(Account.serializeUser());
 passport.deserializeUser(Account.deserializeUser());
 
+//router using
 app.use('/', index);
 app.use('/users', users);
 app.use('/messages', messages);

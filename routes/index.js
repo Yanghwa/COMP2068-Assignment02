@@ -3,12 +3,17 @@ var router = express.Router();
 //add passport for reg and login
 let passport = require('passport');
 let Account = require('../models/account');
-//setting imageuploader
+//setting imageuploader multer module
 let multer  = require('multer');
+let util = require('util');
+//setting random filename maker to avoid duplicate file name
 let crypto = require('crypto');
 let path = require('path');
+//setting fs to read file path - to show on portfolio page
 let fs = require('fs');
+//setting the directory to read
 let testUpload = 'public/images/uploads/';
+//setting the directory to upload
 let storage = multer.diskStorage({
   destination: 'public/images/uploads/',
   filename: function (req, file, cb) {
@@ -18,11 +23,10 @@ let storage = multer.diskStorage({
     });
   }
 });
-
+//setting the multer
 let upload = multer({ storage: storage });
-
+//setting the type to use multer for specific file
 let type = upload.single('image');
-let util = require('util');
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
@@ -41,6 +45,7 @@ router.get('/news', function(req, res, next) {
 
 /* GET portfolio page. */
 router.get('/portfolio', function(req, res, next) {
+  //read files from the directory and render its data
   fs.readdir(testUpload, function(err, files) {
     res.render('portfolio', { title: 'Portfolio', currentPage: 'portfolio', user: req.user, uploadedFiles: files });
   });
@@ -48,12 +53,8 @@ router.get('/portfolio', function(req, res, next) {
 
 /* POST portfolio page*/
 router.post('/portfolio', type, function (req, res, next) {
-  if(req.isAuthenticated()) {
     var pathArray = req.file.path.split( '/' );
     res.redirect('/portfolio');
-  } else {
-    res.redirect('/portfolio');
-  }
 });
 
 /* GET contact page. */
@@ -63,6 +64,7 @@ router.get('/contact', function(req, res, next) {
 
 /* POST contact page*/
 router.post('/contact', function(req, res, next) {
+  //using message model, create message
   let Message = require('../models/message');
   Message.create({
   	name:req.body.name,
@@ -81,20 +83,29 @@ router.post('/contact', function(req, res, next) {
 
 /* GET register */
 router.get('/register', function(req, res, next) {
-  // load the register.ejs view
-  res.render('register', {
-    title: 'Register', user: null, currentPage: 'register'
-  });
+  if(req.isAuthenticated()) {
+    res.redirect('/');
+  } else {
+    // load the register.ejs view
+    res.render('register', {
+      title: 'Register', user: null, currentPage: 'register'
+    });  
+  }
 });
 
 /* GET login */
 router.get('/login', function(req, res, next) {
-  let messages = req.session.messages || [];
-  //clear messages from session
-  req.session.messages = [];
-  res.render('login', {
-    title: 'Login', messages: messages, user: null, currentPage: 'login'
-  });
+  //if user already sign in - redirect to home
+  if(req.isAuthenticated()) {
+    res.redirect('/');
+  } else {
+    let messages = req.session.messages || [];
+    //clear messages from session
+    req.session.messages = [];
+    res.render('login', {
+      title: 'Login', messages: messages, user: null, currentPage: 'login'
+    });  
+  }
 });
 
 /* POST register*/
