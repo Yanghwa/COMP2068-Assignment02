@@ -1,4 +1,6 @@
 /*Imported from the template + bootstrap css*/
+
+//make each element as independent blocks
 article,
 aside,
 details,
@@ -12,6 +14,7 @@ section,
 summary {
   display: block; }
 
+//for media tag, not used
 audio,
 canvas,
 video {
@@ -24,12 +27,14 @@ audio:not([controls]) {
 [hidden], template {
   display: none; }
 
+/*html setting main background also for firefox and edge*/
 html {
   background: #fff;
   color: #000;
   -webkit-text-size-adjust: 100%;
   -ms-text-size-adjust: 100%; }
 
+/*setting base font as sans-serif*/
 html,
 button,
 input,
@@ -37,9 +42,11 @@ select,
 textarea {
   font-family: sans-serif; }
 
+/*reset margin for body*/
 body {
   margin: 0; }
 
+/*setting the link button or links as background clear and put animation when those are focused, hover, or active*/
 a {
   background: transparent; }
   a:focus {
@@ -47,6 +54,7 @@ a {
   a:hover, a:active {
     outline: 0; }
 
+/*set font size and margin for h tags*/
 h1 {
   font-size: 2em;
   margin: 0.67em 0; }
@@ -71,9 +79,11 @@ h6 {
   font-size: 0.75em;
   margin: 2.33em 0; }
 
+/*setting abbr tag- not used this project*/
 abbr[title] {
   border-bottom: 1px dotted; }
 
+/*default setting for bold, mark, or other tag - connected with each styles*/
 b,
 strong {
   font-weight: bold; }
@@ -324,6 +334,7 @@ form input[type="submit"], form button, form input[type="reset"] {
     bottom: -10px;
     right: -10px; }
 
+/*google map api style*/
 #map {
   min-height: 400px; }
 
@@ -449,6 +460,7 @@ form input[type="submit"], form button, form input[type="reset"] {
     overflow: hidden;
     height: 0; }
 
+/*layout setting from bootstrap*/
 .col-xs-1, .col-sm-1, .col-md-1, .col-lg-1, .col-xs-2, .col-sm-2, .col-md-2, .col-lg-2, .col-xs-3, .col-sm-3, .col-md-3, .col-lg-3, .col-xs-4, .col-sm-4, .col-md-4, .col-lg-4, .col-xs-5, .col-sm-5, .col-md-5, .col-lg-5, .col-xs-6, .col-sm-6, .col-md-6, .col-lg-6, .col-xs-7, .col-sm-7, .col-md-7, .col-lg-7, .col-xs-8, .col-sm-8, .col-md-8, .col-lg-8, .col-xs-9, .col-sm-9, .col-md-9, .col-lg-9, .col-xs-10, .col-sm-10, .col-md-10, .col-lg-10, .col-xs-11, .col-sm-11, .col-md-11, .col-lg-11, .col-xs-12, .col-sm-12, .col-md-12, .col-lg-12 {
   position: relative;
   min-height: 1px;
@@ -1248,7 +1260,7 @@ form input[type="submit"], form button, form input[type="reset"] {
   .hidden-print {
     display: none !important; } }
 /*
- * Header Styles
+ * Header and navigation Styles
  */
 .site-header {
   *zoom: 1; }
@@ -1351,6 +1363,7 @@ form input[type="submit"], form button, form input[type="reset"] {
     .mobile-navigation .menu .current-menu-item a {
       color: #f4c545; }
 
+/*home page slideshow styles*/
 .hero-slider {
   position: relative; }
   .hero-slider .slides {
@@ -1788,7 +1801,7 @@ form input[type="submit"], form button, form input[type="reset"] {
               transform: rotate(-45deg);
       bottom: -5px;
       right: -5px; }
-//Bootstrap table style-----------------------without backgroun color
+/*Bootstrap table style-----------------------without default table background color*/
 th {
   text-align: left;
 }
@@ -1809,7 +1822,7 @@ td {
   padding: 8px;
   line-height: 1.42857143;
   vertical-align: top;
-  //border-top: 1px solid #ddd;
+  /*border-top: 1px solid #ddd;*/
 }
 .table > thead > tr > th {
   vertical-align: bottom;
@@ -1902,9 +1915,9 @@ table th[class*="col-"] {
   .table-responsive > .table-bordered > thead > tr > td:last-child,
   .table-responsive > .table-bordered > tbody > tr > td:last-child,
   .table-responsive > .table-bordered > tfoot > tr > td:last-child {
-    border-right: 0;
+    border-right: 0
   }
-  .table-responsive > .table-bordered > tbody > tr:last-child > th,
+  .ta;ble-responsive > .table-bordered > tbody > tr:last-child > th,
   .table-responsive > .table-bordered > tfoot > tr:last-child > th,
   .table-responsive > .table-bordered > tbody > tr:last-child > td,
   .table-responsive > .table-bordered > tfoot > tr:last-child > td {
