@@ -12,7 +12,7 @@ module.exports = {
     twitter: {
     	consumerKey: 'vidkymLGJGKnDs18ViYqhecY8',
     	consumerSecret: 'qycGK6GJILmgWhgeEFvxxrZEF1vGVtZJoTx4XdnQXHirtITbjb',
-    	callbackURL: 'https://boiling-inlet-59814.herokuapp.com/twitter/callback' //heroku url
-    	// callbackURL: "http://127.0.0.1:3000/twitter/callback"  //local url
+    	// callbackURL: 'https://boiling-inlet-59814.herokuapp.com/twitter/callback' //heroku url
+    	callbackURL: "http://localhost:3000/twitter/callback"  //local url
     }
 };
