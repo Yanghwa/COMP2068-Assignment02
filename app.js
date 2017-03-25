@@ -66,6 +66,20 @@ passport.use(new FacebookStrategy({
     }
 ));
 
+//twitter auth
+let TwitterStrategy = require('passport-twitter').Strategy;
+passport.use(new TwitterStrategy({
+    consumerKey: globals.twitter.consumerKey,
+    consumerSecret: globals.twitter.consumerSecret,
+    callbackURL: globals.twitter.callbackURL
+  },
+  function(token, tokenSecret, profile, cb) {
+    Account.findOrCreate({ username: profile.id }, function (err, user) {
+      return cb(err, user);
+    });
+  }
+));
+
 //manage user login status through the db
 passport.serializeUser(Account.serializeUser());
 passport.deserializeUser(Account.deserializeUser());
